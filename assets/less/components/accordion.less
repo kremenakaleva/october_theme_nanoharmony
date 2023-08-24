@@ -1,0 +1,327 @@
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: none!important;
+    background: none!important;
+    font-weight: normal;
+    color: unset!important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+    border: none!important;
+    background: none!important;
+    font-weight: normal;
+    color: unset!important;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0;
+    border-top: 0;
+    overflow: unset!important;
+    height: unset!important;
+}
+
+.ui-accordion .ui-accordion-header {
+    display: block!important;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    margin: 0!important;
+    padding: 0 1rem 0 0!important;
+    font-size: 100%;
+    outline: none;
+    .breakpoint-large-down({
+        padding: 0!important;
+        text-align: left!important;
+        width: 100%;
+    });
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0 0 0 1rem!important;
+    border-top: 0;
+    overflow: unset!important;
+    .breakpoint-large-down({
+        padding: 0!important;
+        text-align: left!important;
+    });
+}
+
+
+.ui-icon {
+    display: none!important;
+}
+
+.ui-widget {
+    font-size: 1em;
+}
+
+.ui-widget div{
+
+}
+
+/*------------------------*/
+
+.projects_services h2{
+    font-size: 36px!important;
+    line-height: 1.7em!important;
+}
+
+
+.ui-icon {
+    &.small, &.large, &.huge {
+        .line-height;
+        vertical-align: middle;
+    }
+    &.small {
+        .font-size(0.80);
+    }
+    &.normal {
+        font-size: 20px;
+        float: left;
+        margin-right: 5px;
+        height: 20px;
+    }
+    &.big {
+        .font-size(2);
+    }
+    &.large {
+        .font-size(3);
+    }
+    &.huge {
+        .font-size(5);
+    }
+}
+
+.file_container{
+    padding: 10px;
+    line-height: 20px;
+    border-bottom: 1px solid #d8d8d8!important;
+}
+
+.plusminus{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.projects_services{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    .col-md-6{
+        flex-basis: 100%!important;
+        max-width: 100% !important;
+        padding: 0;
+    }
+}
+#faqPage{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    .col-md-6{
+        flex-basis: 50%!important;
+        max-width: 50% !important;
+        padding: 0;
+    }
+}
+.gloss{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    display: flex!important;
+    width: 100%;
+    .col-md-6{
+        flex-basis: 49%!important;
+        max-width: 49% !important;
+        padding: 0;
+    }
+
+    .key_g_0,
+    .key_g_1,
+    .key_g_2,
+    .key_g_3,
+    .key_g_4,
+    .key_g_5,
+    .key_g_6,
+    .key_g_7,
+    .key_g_8,
+    .key_g_9,
+    .key_g_10,
+    .key_g_11,
+    .key_g_12,
+    .key_g_13,
+    .key_g_14,
+    .key_g_15,
+    .key_g_16,
+    .key_g_17{
+        .breakpoint-large-down({
+            width: 100%;
+        });
+    }
+}
+
+#FAQ{
+    h2.underline{
+        display: none;
+    }
+}
+
+.projects_services .accordion-border{
+    border: none;
+    border-radius: 18px;
+    padding: 30px!important;
+    margin: 0 0 30px 0;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+    background: @secondary-color;
+
+    .breakpoint-large-down({
+        width: auto;
+    });
+}
+#faqPage .accordion-border{
+    width: auto;
+}
+.gloss .accordion-border{
+    width: auto;
+}
+
+
+.projects_services .accordion-toggle{
+    background: none;
+    border: none;
+    border-radius: unset;
+    padding: 0;
+    color: @dark-color;
+    font-size: 1em;
+    font-weight: bold;
+    .green_bullet{
+        display: none;
+    }
+    .col-xs.start-xs{
+        padding-left: 0;
+    }
+
+}
+.projects_services .accordion-content{
+    margin-top: 20px;
+    padding-top: 20px;
+    line-height: 1.5em!important;
+    display: none;
+
+}
+
+
+.projects_services .accordion-content p{
+    .breakpoint-large-down({
+        padding: 0!important;
+        text-align: left!important;
+    });
+}
+
+.projects_services{
+    .plusminus{
+        width: 27px;
+        position: relative;
+        max-width: 27px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #92D050;
+        border-radius: 50%;
+
+        .plus, .minus{
+            color: @link-color;
+            width: 11px;
+            height: 11px;
+            background-size: contain;
+            display: flex;
+
+        }
+
+        .plus{
+            background: #92D050 url("../../assets/images/arrow white.svg") center no-repeat;
+            background-size: contain;
+            transform: rotate(90deg);
+        }
+        .minus{
+            background: #92D050 url("../../assets/images/arrow white.svg") center no-repeat;
+            background-size: contain;
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+
+#ui-id-1,
+#ui-id-2,
+#ui-id-3,
+#ui-id-4,
+#ui-id-5,
+#ui-id-6,
+#ui-id-7,
+#ui-id-8,
+#ui-id-9,
+#ui-id-10,
+#ui-id-11,
+#ui-id-12,
+#ui-id-13,
+#ui-id-14,
+#ui-id-15,
+#ui-id-16,
+#ui-id-17,
+#ui-id-18,
+#ui-id-19,
+#ui-id-20,
+#ui-id-21,
+#ui-id-22,
+#ui-id-23,
+#ui-id-24,
+#ui-id-25,
+#ui-id-26,
+#ui-id-27,
+#ui-id-28,
+#ui-id-29,
+#ui-id-30,
+#ui-id-31,
+#ui-id-32{
+    a{
+        color: @link-color;
+    }
+    .breakpoint-large-down({
+        display: block!important;
+        width: 100%;
+    })
+}
+//
+//.about{
+//    #ui-id-1,
+//    #ui-id-2,
+//    #ui-id-3,
+//    #ui-id-4,
+//    #ui-id-5,
+//    #ui-id-6,
+//    #ui-id-7,
+//    #ui-id-8,
+//    #ui-id-9,
+//    #ui-id-10,
+//    #ui-id-11,
+//    #ui-id-12,
+//    #ui-id-13,
+//    #ui-id-14,
+//    #ui-id-15,
+//    #ui-id-16{
+//        .breakpoint-large-down({
+//            display: flex!important;
+//            width: 100%;
+//        })
+//    }
+//}
+
+

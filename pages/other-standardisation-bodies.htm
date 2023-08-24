@@ -1,0 +1,54 @@
+url = "/other-standardisation-bodies"
+layout = "default"
+title = "Other standardisation bodies"
+is_hidden = 0
+meta_description = "National standardisation bodies often collaborate in regional or global standardisation bodies for the development and use of international standards."
+seo_keywords = "Institutions"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "industry-service-providers.jpg"
+header_text = "National standardisation bodies often collaborate in regional or global standardisation bodies for the development and use of international standards."
+
+[jumbotron]
+jumbotron = "industry-other-standardisation-bodies-metrology"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "industry-other-standardisation-bodies-international-standard-bodies"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "industry-other-standardisation-bodies-standardisation-networks-and-initiatives"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '10')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Metrology">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="International">
+        {% component 'jumbotron2' %}
+    </div>
+    <div class="row" id="Standardisation-networks-initiatives">
+        {% component 'jumbotron3' %}
+    </div>
+</div>

@@ -1,0 +1,53 @@
+url = "/governmental-bodies"
+layout = "default"
+title = "Governmental bodies"
+is_hidden = 0
+seo_keywords = "Institutions"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "industry-service-providers.jpg"
+meta_description = "Sentence for general description below missing"
+
+[jumbotron]
+jumbotron = "industry-governmental-bodies-ministries-and-directorates"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "industry-governmental-bodies-governmental-agencies"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "industry-governmental-bodies-regulatory-networks-and-initiatives"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '11')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Ministries">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="Agencies">
+        {% component 'jumbotron2' %}
+    </div>
+    <div class="row" id="Networks">
+        {% component 'jumbotron3' %}
+    </div>
+</div>

@@ -1,0 +1,60 @@
+[menu about_menu]
+start = "id-2"
+activeNode = 0
+listItemClasses = "footer-menu-item"
+primaryClasses = "footer-menu"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 1
+
+[menu results_menu]
+start = "id-4"
+activeNode = 0
+listItemClasses = "footer-menu-item"
+primaryClasses = "footer-menu"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 1
+
+[menu resources_menu]
+start = "id-5"
+activeNode = 0
+listItemClasses = "footer-menu-item"
+primaryClasses = "footer-menu"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 1
+
+[cookieConsent]
+message = "This website uses cookies to ensure you get the best experience on our website."
+dismiss = "Got it!"
+learnMore = "More info"
+link = "/privacy-policy"
+theme = "dark-bottom"
+
+[menu outreach_menu]
+start = "id-3"
+activeNode = 0
+listItemClasses = "footer-menu-item"
+primaryClasses = "footer-menu"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 2
+==
+{% component 'cookieConsent' %}
+
+<div class="container-fluid border-box dark-background row top-xs">
+        <div class="container">
+            {% if (footer_funds_flag != null or footer_funds_text != '') %}
+            <div class="funding col-sm-9 col-xs-12">
+                {% if footer_funds_flag %}
+                <img class="text mr-0 mr-lg-1" style="height:50px;" src="{{ footer_funds_flag }}"/>
+                {% endif %}
+                {% if footer_funds_text %}
+                <span class="align-items-center mt-sm-0 mt-1">{{footer_funds_text}}</span>
+                {%endif %}
+            </div>
+
+            {% endif %}
+            <div class="col-sm-3 col-xs-12 end-lg center-xs">
+                <div class="project_footer_logo"><a href="{{'home'|page}}"></a></div>
+            </div>
+        </div>
+
+</div>

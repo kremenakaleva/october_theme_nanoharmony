@@ -1,0 +1,53 @@
+title = "Validation, ILC  and validation report"
+layout = "default"
+url = "/validation-ilc-and-validation-report"
+is_hidden = 0
+meta_description = "Evaluation of relevance and feasibility of the potential OECD project."
+seo_keywords = "Project definition at OECD"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "Key-processes.jpg"
+
+[siteSearchInclude]
+
+[jumbotron]
+jumbotron = "processes-validation"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "processes-validation-ilc"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "processes-validation-validation-report"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '27')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Validation">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="ILC">
+        {% component 'jumbotron2' %}
+    </div>
+    <div class="row" id="Validation-report">
+        {% component 'jumbotron3' %}
+    </div>
+</div>

@@ -1,0 +1,55 @@
+url = "/roles"
+layout = "default"
+title = "Roles"
+is_hidden = 0
+meta_description = "Roles page"
+seo_keywords = "Roles"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "Roles.jpg"
+header_text = "Key roles in which stakeholders can recognise their engagement with the OECD TGs Programme"
+
+[jumbotron]
+jumbotron = "lead-member-country"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "participate-comment"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "project-lead-institution"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '3')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+            <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Lead">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="Institution">
+        {% component 'jumbotron3' %}
+    </div>
+    <div class="row" id="Participate-Comment">
+        {% component 'jumbotron2' %}
+    </div>
+</div>

@@ -1,0 +1,71 @@
+url = "/industry-service-providers"
+layout = "default"
+title = "Industry & Service Providers"
+meta_description = "Main industrial actors involved in the OECD TG/GD development and use."
+is_hidden = 0
+seo_keywords = "Institutions"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "industry-service-providers.jpg"
+
+[jumbotron]
+jumbotron = "industry-industry-service-providers-consultant"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "industry-industry-service-providers-contract-and-research-organisations-cros-and-contract-laboratories"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "industry-industry-service-providers-smes"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron4]
+jumbotron = "industry-industry-service-providers-large-companies"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron5]
+jumbotron = "industry-industry-service-providers-trade-associations"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '13')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Consultant">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="Contract">
+        {% component 'jumbotron2' %}
+    </div>
+    <div class="row" id="Small-Medium-Enterprises">
+        {% component 'jumbotron3' %}
+    </div>
+    <div class="row" id="Large-Companies">
+        {% component 'jumbotron4' %}
+    </div>
+    <div class="row" id="Trade-associations">
+        {% component 'jumbotron5' %}
+    </div>
+</div>

@@ -1,0 +1,50 @@
+url = "/about"
+layout = "default"
+title = "About"
+is_hidden = 0
+seo_keywords = "keywords"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "About.jpg"
+
+[siteSearchInclude]
+
+[jumbotron intro]
+jumbotron = "about"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[accordion accordion_about]
+maxItems = 10
+accordion = 1
+elementId = "aboutId"
+active = 0
+collapsible = "false"
+heightStyle = "auto"
+iconsHeader = "ui-icon-triangle-1-e"
+iconsHeaderActive = "ui-icon-triangle-1-s"
+templates = "template3"
+
+[jumbotron redMoreBlock]
+jumbotron = "read-more-about"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+
+<div class="container">
+    <div class="row between-lg around-xs">
+        <div class="col-lg-10 col-xs-12">
+            {% component 'intro' %}
+            {% component 'accordion_about' %}
+        </div>
+        <div class="col-lg-2 col-xs-12">
+            <div class="read_more_block">
+                <h4>Read more</h4>
+                {% component 'redMoreBlock' %}
+            </div>
+        </div>
+    </div>
+</div>

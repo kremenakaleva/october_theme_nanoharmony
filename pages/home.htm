@@ -1,0 +1,36 @@
+url = "/"
+layout = "default"
+title = "NanoHarmony"
+is_hidden = 0
+meta_description = "homepage desc"
+seo_keywords = "keywords"
+robot_index = "index"
+robot_follow = "follow"
+
+==
+<?php
+
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '30')->get();
+}
+
+?>
+==
+
+<div class="container mt-4 mb-4">
+    {% if is_mobile %}
+        {% partial "components/homepage_schema_mobile.htm" %}
+    {% else %}
+        {% partial "components/homepage_schema.htm" %}
+    {% endif %}
+
+
+</div>
+<div class="container useful_resources_home">
+    <h3>Useful resources</h3>
+    <ul class="menu_resources">
+        {% for item in menu_records %}
+        <li><a href="{{item.url|page}}{{item.query_string}}">{{item.title}}</a></li>
+        {% endfor %}
+    </ul>
+</div>

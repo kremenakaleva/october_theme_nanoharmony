@@ -1,0 +1,25 @@
+url = "/use-and-update-oecd-gdstgs"
+layout = "default"
+title = "Use and Update of OECD GDs/TGs"
+is_hidden = 0
+meta_description = "Evaluation of relevance and feasibility of the potential OECD project."
+seo_keywords = "Use and Update of OECD GDs/TGs"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "Pre-OECD-phase.jpg"
+
+[siteSearchInclude]
+
+[jumbotron]
+jumbotron = "phase-5"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="phases_timeline">
+        {% partial 'components/phases.htm' phase=5 %}
+    </div>
+    {% component 'jumbotron' %}
+</div>

@@ -1,0 +1,43 @@
+url = "/general-public-ngos"
+layout = "default"
+title = "General Public & NGOs"
+is_hidden = 0
+seo_keywords = "Institutions"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "industry-service-providers.jpg"
+
+[jumbotron]
+jumbotron = "industry-general-public-ngos-member-general-public"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "industry-general-public-ngos-ngos"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '14')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Member">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="NGOs">
+        {% component 'jumbotron2' %}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+url = "/project-definition-oecd"
+layout = "default"
+title = "Project definition at OECD"
+is_hidden = 0
+meta_description = "Evaluation of relevance and feasibility of the potential OECD project."
+seo_keywords = "Project definition at OECD"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "Pre-OECD-phase.jpg"
+
+[siteSearchInclude]
+
+[jumbotron]
+jumbotron = "phase-2"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="phases_timeline">
+        {% partial 'components/phases.htm' phase=2 %}
+    </div>
+    {% component 'jumbotron' %}
+</div>

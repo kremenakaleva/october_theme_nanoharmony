@@ -1,0 +1,52 @@
+url = "/academia"
+layout = "default"
+title = "Universities and Research Centres"
+is_hidden = 0
+seo_keywords = "Institutions"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "industry-service-providers.jpg"
+
+[jumbotron]
+jumbotron = "industry-academia-universities-and-research-centres"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "industry-academia-research-projects"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "industry-academia-research-networks-and-initiatives"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '12')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="RTOs">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="Research-Projects">
+        {% component 'jumbotron2' %}
+    </div>
+    <div class="row" id="Research-Networks">
+        {% component 'jumbotron3' %}
+    </div>
+</div>

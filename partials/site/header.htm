@@ -1,0 +1,95 @@
+[menu]
+start = "id-2"
+activeNode = 0
+listItemClasses = "nav-item"
+primaryClasses = "navbar-nav"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 2
+
+[jumbotron intro]
+jumbotron = "homepage-intro"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+<nav class="navbar fixed pr-1 pl-1" id="headernavbar">
+    <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        {% component 'menu' %}
+    </div>
+
+
+    <a href="{{'home'|page}}" class="navbar-brand" id="navbar-brand" style="background-image: url('{{ this.theme.site_logo.getPath() }}'); background-position: center; background-size: contain;">
+        OECD TG/GD Process Mentor
+    </a>
+
+    <div class="navbar-collapse collapse end-xs" id="headerNavbarNav" style="display: none;">
+        {% component 'menu' %}
+    </div>
+
+    <a class="pr p-search middle search-btn" onclick="showSearchForm();"></a>
+
+    <div id="search" class="search" style="display: none;">
+        <div class="close-search" onclick="hideSearchForm();">&#x2715;</div>
+        <form class="input-group align-items-start" action="{{ url('search')}}" method="get">
+            <input class="form-control search_input" style="color: #000;" name="q" type="text" autocomplete="on" placeholder="Search">
+            <button class="btn btn-link pr p-search big text-grey-search-btn" type="submit"></button>
+        </form>
+    </div>
+
+</nav>
+
+
+
+
+{% if page_id != 'search' %}
+<div class="header-image {{page_id}}">
+    {%if this.page.header_image %}
+    <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}');">
+        {% if page_id != 'home' and page_id != 'search'%}
+        <h1 class="underline white">
+            {%if page_title%} {{page_title}} {%else%} {{site_name}} {%endif%}</h1>
+        {% if this.page.meta_description %}
+        <p align="center">{{this.page.meta_description}}</p>
+        {%endif%}
+
+        {% endif %}
+    </div>
+    {%else%}
+    <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+        <div class="jumbotron" >
+            {% if page_id != 'home' and page_id != 'search' %}
+            <h1 class="underline white">
+                {%if page_title%} {{page_title}} {%else%} {{site_name}} {%endif%}</h1>
+            {%endif%}
+            {% if page_id == 'home'%}
+            <div class="container homepage row around-xs between-lg middle-lg top-xs">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="row intro">
+                        <div class="col-xs-12 mb-4">
+                            <div class="logo_main">OECD TG/GD Process Mentor</div>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 mb-2" data-aos="zoom-in">
+                            <div class="tagline">{% component 'intro' %}</div>
+                        </div>
+                        <div class="col-md-12 col-xs-12 start-lg center-xs">
+                            <div class="intro_btn"><a href="{{'about'|page}}">Find out more</a> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xs-12">
+                    {% partial "components/svg.htm" %}
+                </div>
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+    {%endif%}
+
+</div>
+{% endif %}

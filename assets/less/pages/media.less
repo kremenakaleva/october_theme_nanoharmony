@@ -1,0 +1,121 @@
+.newsletter_container{
+    .newsletter_item{
+        text-align: center;
+        background: @secondary-color;
+        padding: 30px;
+        max-width: 371px;
+        margin-top: 30px;
+    }
+}
+
+
+.newsletters{
+    .card_image_container{
+        display: flex;
+        background-size: unset!important;
+        width: 312px;
+        height: 220px;
+        border-radius: 5px;
+        margin: 30px 0;
+    }
+    .date{
+        color: @yellow-color;
+        font-weight: bold;
+    }
+}
+
+.press-releases .link a{
+  margin-right: 20px;
+    .breakpoint-small-down({
+        margin-right: 0;
+        margin-bottom: 20px;
+    });
+}
+
+.press-relieses-container{
+    .date{
+        color: @yellow-color;
+        font-weight: bold;
+    }
+    .press-relies-item{
+        background: @secondary-color;
+        padding: 30px!important;
+        margin: 30px 0!important;
+        color: @default-color!important;
+        font-size: 16px;
+        .rounded(5px);
+        position: relative;
+    }
+}
+
+.logo{
+    .logo_container{
+        border-radius: 50%;
+        width: 290px;
+        max-width: 100%;
+        aspect-ratio : 1 / 1;
+        //height: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: @secondary-color;
+        margin: 35px auto;
+
+        img{
+            width: 199px;
+            //height: 199px;
+            max-width: 70%!important;
+            aspect-ratio : 1 / 1;
+        }
+
+    }
+
+    a.btn-primary{
+        //width: 325px;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .col-md-3.col-xs-12.center-xs{
+        &:nth-of-type(3){
+            .logo_container{
+                background: @default-color;
+            }
+
+        }
+    }
+}
+.flyer{
+    .logo_container{
+        border-radius: 50%;
+        width: 192px;
+        height: 192px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: @dark-color;
+        margin: 40px auto;
+
+        img{
+            width: 111px;
+            height: 111px;
+            object-fit: contain;
+        }
+
+    }
+
+    a.btn-primary{
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.coming_soon{
+    img{
+        max-width: 616px;
+        width: 60%;
+        object-fit: contain;
+        margin: 50px auto;
+        display: block;
+    }
+}

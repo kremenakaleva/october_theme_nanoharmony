@@ -1,0 +1,128 @@
+url = "/useful-resources"
+layout = "default"
+title = "Useful resources"
+is_hidden = 0
+meta_description = "Compilation of relevant resources for stakeholders engaging with an OECD TG/GD project."
+seo_keywords = "Useful resources"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "Useful-resources.jpg"
+
+[siteSearchInclude]
+
+[jumbotron]
+jumbotron = "useful-resources-introduction-oecd-standardization"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+<?php
+use Pensoft\Calendar\Models\Entry;
+use BenFreke\MenuManager\Models\Menu;
+use Pensoft\Accordions\Models\Item;
+use Carbon\Carbon;
+
+function onStart(){
+    $this['menu_records'] = Menu::where('parent_id', '=', '30')->get();
+    $this['faq_items'] = Item::where('category_id', '=', '30')->get();
+    $this['glossary_items'] = Item::where('category_id', '=', '31')->get();
+    $this['entries'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Introduction-OECD-standardization">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="FAQ">
+        <div class="row projects_services text-left relative top-xs mt-2 gloss">
+            {% for key, item in faq_items %}
+            <div class="key_f_{{key}}">
+                <div class="accordion-border">
+                    <div class="row middle-xs accordion-toggle">
+                        <div class="col-xs start-xs">{{item.title}}</div>
+                        <div class="col-xs-2 end-xs plusminus"><span class="plus">&nbsp;</span></div>
+                    </div>
+                    <div class="accordion-content">
+
+                        {{item.body|raw}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row" id="Key-links">
+        {% if entries.count() %}
+        <!-- events timeline -->
+                <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
+                    <div class="timeline__wrap">
+                        <div class="timeline__items">
+                            {% for entry in entries %}
+                            {% if entry.start %}
+                            <div class="timeline__item">
+                                <div class="timeline__content index_{{entry.id}}">
+                                    <div class="date_and_place">
+                                        <span class="event_date">
+                                            {{entry.start | date('F Y')}}
+                                        </span>
+                                    </div>
+                                    <div class="title_and_desc">
+                                        <span class="timeline-body">{{entry.title}}</span>
+                                        <span class="timeline-desc">{{entry.description|raw}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+            <script type="text/javascript">
+                timeline(document.querySelectorAll('.timeline'), {
+                    forceVerticalMode: 700,
+                    mode: 'horizontal',
+                    verticalStartPosition: 'left',
+                    visibleItems: 4,
+                    startIndex: 0
+                });
+            </script>
+    {% endif %}
+    </div>
+    <div class="row" id="Glossary">
+        <div class="row projects_services text-left relative top-xs mt-2 gloss">
+                {% for key, item in glossary_items %}
+                <div class="key_g_{{key}}">
+                    <div class="accordion-border">
+                        <div class="row middle-xs accordion-toggle">
+                            <div class="col-xs start-xs">{{item.title}}</div>
+                            <div class="col-xs-2 end-xs plusminus"><span class="plus">&nbsp;</span></div>
+                        </div>
+                        <div class="accordion-content">
+
+                                    {{item.body|raw}}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+        <script>
+            var width = $(window).width();
+
+            if (width >= 1024 ) {
+                $('.key_g_1, .key_g_3, .key_g_5, .key_g_7, .key_g_9, .key_g_11, .key_g_13, .key_g_15, .key_g_17, .key_g_19, .key_g_21, .key_g_23, .key_g_25, .key_g_27').wrapAll('<div class="col-md-6 col-xs-12" />');
+                $('.key_g_0, .key_g_2, .key_g_4, .key_g_6, .key_g_8, .key_g_10, .key_g_12, .key_g_14, .key_g_16, .key_g_18, .key_g_20, .key_g_22, .key_g_24, .key_g_26').wrapAll('<div class="col-md-6 col-xs-12" />');
+                $('.key_f_1, .key_f_3, .key_f_5, .key_f_7, .key_f_9, .key_f_11, .key_f_13, .key_f_15, .key_f_17, .key_f_19, .key_f_21, .key_f_23, .key_f_25, .key_f_27').wrapAll('<div class="col-md-6 col-xs-12" />');
+                $('.key_f_0, .key_f_2, .key_f_4, .key_f_6, .key_f_8, .key_f_10, .key_f_12, .key_f_14, .key_f_16, .key_f_18, .key_f_20, .key_f_22, .key_f_24, .key_f_26').wrapAll('<div class="col-md-6 col-xs-12" />');
+            }
+
+        </script>
+    </div>
+</div>

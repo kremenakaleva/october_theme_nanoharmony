@@ -1,0 +1,53 @@
+title = "Drafting OECD documents"
+layout = "default"
+url = "/drafting-oecd-documents"
+is_hidden = 0
+meta_description = "Evaluation of relevance and feasibility of the potential OECD project."
+seo_keywords = "Project definition at OECD"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "Key-processes.jpg"
+
+[siteSearchInclude]
+
+[jumbotron]
+jumbotron = "processes-draft-spsf"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "processes-draft-draft-oecd-tg-or-gd"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "processes-drafting-oecd-documents"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '25')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+        <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div class="row" id="Draft-SPSF">
+        {% component 'jumbotron' %}
+    </div>
+    <div class="row" id="Draft-OECD-TG-GD">
+        {% component 'jumbotron2' %}
+    </div>
+    <div class="row" id="Draft-other-OECD-documents">
+        {% component 'jumbotron3' %}
+    </div>
+</div>

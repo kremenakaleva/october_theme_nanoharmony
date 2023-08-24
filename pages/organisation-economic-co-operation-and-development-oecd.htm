@@ -1,0 +1,104 @@
+url = "/organisation-economic-co-operation-and-development-oecd"
+layout = "default"
+title = "Organisation for Economic Co-operation and Development (OECD)"
+is_hidden = 0
+meta_description = "OECD is the central institution for the development of international standards."
+seo_keywords = "Institutions"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "industry-service-providers.jpg"
+
+[jumbotron jumbotron1]
+jumbotron = "industry-organisation-economic-co-operation-and-development-oecd"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "industry-wntmember-country"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron3]
+jumbotron = "industry-oecd-secretariat"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron4]
+jumbotron = "industry-wpmn-and-other-oecd-bodies"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron5]
+jumbotron = "industry-biac"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron jumbotron6]
+jumbotron = "industry-icapo"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[siteSearchInclude]
+==
+<?php
+function onStart(){
+    $this['menu_records'] = BenFreke\MenuManager\Models\Menu::where('parent_id', '=', '52')->get();
+}
+?>
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    <div class="tabs">
+        {% for item in menu_records %}
+            <a class="" href="{{item.query_string}}">{{item.title}}</a>
+        {% endfor %}
+    </div>
+    <div id="General">
+        <div class="row between-lg around-xs">
+            <div class="col-lg-12 col-xs-12">
+                {% component 'jumbotron1' %}
+            </div>
+        </div>
+    </div>
+    <div id="WNT">
+        <div class="row between-lg around-xs">
+            <div class="col-lg-12 col-xs-12">
+                {% component 'jumbotron2' %}
+            </div>
+        </div>
+    </div>
+    <div id="OECD">
+        <div class="row between-lg around-xs">
+            <div class="col-lg-12 col-xs-12">
+                {% component 'jumbotron3' %}
+            </div>
+        </div>
+    </div>
+    <div id="WPMN">
+        <div class="row between-lg around-xs">
+            <div class="col-lg-12 col-xs-12">
+                {% component 'jumbotron4' %}
+            </div>
+        </div>
+    </div>
+    <div id="BIAC">
+        <div class="row between-lg around-xs">
+            <div class="col-lg-12 col-xs-12">
+                {% component 'jumbotron5' %}
+            </div>
+        </div>
+    </div>
+    <div id="ICAPO">
+        <div class="row between-lg around-xs">
+            <div class="col-lg-12 col-xs-12">
+                {% component 'jumbotron6' %}
+            </div>
+        </div>
+    </div>
+</div>
