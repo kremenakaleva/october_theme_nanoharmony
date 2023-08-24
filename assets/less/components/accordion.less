@@ -110,9 +110,13 @@
     margin: 0;
     display: flex;
     .col-md-6{
-        flex-basis: 100%!important;
-        max-width: 100% !important;
+        flex-basis: 95%!important;
+        max-width: 95% !important;
         padding: 0;
+        .breakpoint-large-down({
+            flex-basis: 100%!important;
+            max-width: 100% !important;
+        });
     }
 }
 #faqPage{

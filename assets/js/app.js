@@ -34,7 +34,10 @@ $(document).ready(function() {
                 $('#menu, #menu *').css({
                     'visibility': 'visible'
                 });
-                // $('.navbar.fixed').css('position', 'absolute');
+                $('.navbar.fixed').css('position', 'absolute');
+                $('html, body').animate({
+                    scrollTop:  0
+                }, 1);
                 // $('body', 'html').css({
                 //     'overflow': 'hidden'
                 // });
@@ -115,28 +118,6 @@ $(document).ready(function() {
 
         // Bind the click event handler
         $(this).find("a").click(function (e) {
-            // if($(this).hasClass('active')) {
-            //     $content.slideDown(speed);
-            //     e.preventDefault();
-            //     return false;
-            // }
-            // // Make the old tab inactive.
-            // $active.removeClass('active');
-            // // $content.slideUp({
-            // // 	scrollTop: $content.offset().top - $('header').height() - $('.left_sidebar').height()
-            // // }, speed);
-            // $content.hide();
-            //
-            // // Update the variables with the new link and content
-            // $active = $(this);
-            // $content = $(this.hash);
-            //
-            // location.hash = $active[0].hash;
-            //
-            // // Make the tab active.
-            // $active.addClass('active');
-            // $content.slideDown(speed);
-
 
             if($(this).hasClass('active')) {
                 $content.slideDown({
@@ -159,9 +140,6 @@ $(document).ready(function() {
             }
             // Make the old tab inactive.
             $active.removeClass('active');
-            // $content.slideUp({
-            // 	scrollTop: $content.offset().top - $('header').height() - $('.left_sidebar').height()
-            // }, speed);
             $content.hide();
 
             // Update the variables with the new link and content
@@ -187,84 +165,6 @@ $(document).ready(function() {
 	$('h2.underline').attr('data-aos', 'fade-up');
 
 });
-
-
-// $('.tabs').each(function(){
-//     // For each set of tabs, we want to keep track of
-//     // which tab is active and its associated content
-//     var $active, $content, $links = $(this).find('a');
-//     var speed = "fast";
-//     var activeTab = $(location.hash);
-//     // If the location.hash matches one of the links, use that as the active tab.
-//     // If no match is found, use the first link as the initial active tab.
-//     $active = $($links.filter("[href=\'"+location.hash+"\']")[0] || $links[0]);
-//
-//     if($(this).parent().parent().hasClass('events')){
-//         $active.addClass('active');
-//     }
-//
-//     $content = $($active[0].hash);
-//
-//     // Hide the remaining content
-//     $links.not($active).each(function () {
-//         $(this.hash).hide();
-//     });
-//
-//     if(activeTab.length){
-//         $content.slideDown(speed);
-//         //scroll to element
-//         $('html, body').animate({
-//             scrollTop:  0
-//         }, speed);
-//     }
-//
-//     // Bind the click event handler
-//     $(this).find("a").click(function (e) {
-//         if($(this).hasClass('active')) {
-//             $content.slideDown({
-//                 scrollTop: 0
-//             }, speed);
-//             var screenSize = getScreenSize();
-//             if (screenSize.width < 800) {
-//                 // scroll to element
-//                 $('html, body').animate({
-//                     scrollTop: 0  // mobile
-//                 }, speed);
-//             }else{
-//                 //scroll to element icons top
-//                 $('html, body').animate({
-//                     scrollTop:  0
-//                 }, speed);
-//             }
-//             e.preventDefault();
-//             return false;
-//         }
-//         // Make the old tab inactive.
-//         $active.removeClass('active');
-//         // $content.slideUp({
-//         // 	scrollTop: $content.offset().top - $('header').height() - $('.left_sidebar').height()
-//         // }, speed);
-//         $content.hide();
-//
-//         // Update the variables with the new link and content
-//         $active = $(this);
-//         $content = $(this.hash);
-//
-//         location.hash = $active[0].hash;
-//
-//         // Make the tab active.
-//         $active.addClass('active');
-//         if($content.offset()){
-//             $content.slideDown({
-//                 scrollTop: 0
-//             }, speed);
-//         }
-//
-//
-//         // Prevent the anchor\'s default click action
-//         e.preventDefault();
-//     });
-// });
 
 function GoToPage(page){
     window.open('/'+page, '_self');
