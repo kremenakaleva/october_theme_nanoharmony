@@ -31,7 +31,7 @@
     padding: 80px 20px 0 20px;
     margin: 50px 0 0 0;
     background-size: contain;
-    .breakpoint-large-down({
+    .breakpoint-huge-down({
         background: none;
         padding: 0;
         margin: 0;
@@ -43,38 +43,63 @@
         padding: 20px 15px;
         position: relative;
         &:nth-of-type(1){
+            .breakpoint-huge-down({
+                background: url("../../assets/images/phase1.svg") top left no-repeat;
+                background-size: 50%;
+                padding: 95px 0 15px 0;
+                margin-top: 10px;
+            });
             .breakpoint-large-down({
                 background: url("../../assets/images/phase1.svg") top center no-repeat;
                 padding: 75px 0 15px 0;
-                margin-top: 10px;
             });
         }
         &:nth-of-type(2){
-            .breakpoint-large-down({
-                background: url("../../assets/images/phase2.svg") top center no-repeat;
-                padding: 75px 0 15px 0;
+            .breakpoint-huge-down({
+                background: url("../../assets/images/phase2.svg") top left no-repeat;
+                 background-size: 50%;
+                padding: 95px 0 15px 0;
                 margin-top: 10px;
+            });
+            .breakpoint-large-down({
+                background: url("../../assets/images/phase1.svg") top center no-repeat;
+                padding: 75px 0 15px 0;
             });
         }
         &:nth-of-type(3){
-            .breakpoint-large-down({
-                background: url("../../assets/images/phase3.svg") top center no-repeat;
-                padding: 75px 0 15px 0;
+            .breakpoint-huge-down({
+                background: url("../../assets/images/phase3.svg") top left no-repeat;
+                 background-size: 50%;
+                padding: 95px 0 15px 0;
                 margin-top: 10px;
+            });
+            .breakpoint-large-down({
+                background: url("../../assets/images/phase1.svg") top center no-repeat;
+                padding: 75px 0 15px 0;
             });
         }
         &:nth-of-type(4){
-            .breakpoint-large-down({
-                background: url("../../assets/images/phase4.svg") top center no-repeat;
-                padding: 75px 0 15px 0;
+            .breakpoint-huge-down({
+                background: url("../../assets/images/phase4.svg") top left no-repeat;
+                 background-size: 50%;
+                padding: 95px 0 15px 0;
                 margin-top: 10px;
+            });
+            .breakpoint-large-down({
+                background: url("../../assets/images/phase1.svg") top center no-repeat;
+                padding: 75px 0 15px 0;
             });
         }
         &:nth-of-type(5){
-            .breakpoint-large-down({
-                background: url("../../assets/images/phase5.svg") top center no-repeat;
-                padding: 75px 0 15px 0;
+            .breakpoint-huge-down({
+                background: url("../../assets/images/phase5.svg") top left no-repeat;
+                 background-size: 50%;
+                padding: 95px 0 15px 0;
                 margin-top: 10px;
+            });
+            .breakpoint-large-down({
+                background: url("../../assets/images/phase1.svg") top center no-repeat;
+                padding: 75px 0 15px 0;
             });
         }
         &:after{
@@ -85,7 +110,7 @@
             position: absolute;
             top: 20px;
             right: -1px;
-            .breakpoint-large-down({
+            .breakpoint-huge-down({
                 display: none;
             });
         }

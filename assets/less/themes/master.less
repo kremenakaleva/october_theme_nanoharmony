@@ -263,12 +263,16 @@ h1.display-1{
 
     &.home {
         .header-image-bar {
-            height: calc(~'100vh - 70px');
+            //height: calc(~'100vh - 70px');
+            min-height: 700px;
+            height: fit-content;
             display: flex;
             align-items: center;
-            margin-top: 70px;
+            //margin-top: 70px;
+            margin-top: 100px;
             .breakpoint-large-down({
                 height: auto;
+                min-height: unset;
             });
         }
     }
@@ -345,7 +349,7 @@ h1.display-1{
 }
 
 .content-wrapper{
-    min-height: 100%;
+    min-height: calc(~'100% - 134px');
 }
 
 #layout-footer {
@@ -629,3 +633,46 @@ p:has(.edit-link), .edit-link{
 }
 
 
+.all-caps{
+    .accordion-toggle{
+        text-transform: uppercase;
+    }
+}
+
+#FAQ{
+    .accordion-toggle{
+        text-transform: unset;
+    }
+}
+
+.subtabs{
+    margin-top: 20px;
+}
+.subtabs ul.ui-tabs-nav{
+    list-style-image: none;
+    padding-left: 0px;
+    display: inline-block;
+    margin-bottom: 50px;
+    li{
+        display: inline;
+        padding: 3px 0 13px 8px;
+
+        a{
+            border-radius: 18px;
+            // background: #005494;
+            background: #11B3E8;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+
+    li.ui-state-hover, li.ui-tabs-active{
+        
+        a{
+            background: #005494;
+            
+        }
+    }
+}

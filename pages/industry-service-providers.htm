@@ -1,8 +1,8 @@
 url = "/industry-service-providers"
 layout = "default"
 title = "Industry & Service Providers"
-meta_description = "Main industrial actors involved in the OECD TG/GD development and use."
 is_hidden = 0
+meta_description = "Main industrial actors involved in the OECD TG/GD development and use."
 seo_keywords = "Institutions"
 robot_index = "index"
 robot_follow = "follow"
@@ -53,7 +53,8 @@ function onStart(){
         <a class="" href="{{item.query_string}}">{{item.title}}</a>
         {% endfor %}
     </div>
-    <div class="row" id="Consultant">
+
+    <div class="row" id="Consultants">
         {% component 'jumbotron' %}
     </div>
     <div class="row" id="Contract">
@@ -65,7 +66,7 @@ function onStart(){
     <div class="row" id="Large-Companies">
         {% component 'jumbotron4' %}
     </div>
-    <div class="row" id="Trade-associations">
+    <div class="row" id="Industry-associations">
         {% component 'jumbotron5' %}
     </div>
 </div>

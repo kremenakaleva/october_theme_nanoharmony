@@ -80,7 +80,7 @@ $(document).ready(function() {
 
 
     $('.projects_services .accordion-content, .projects_services .accordion-toggle').each(function( index, value ) {
-        $(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" )
+        $(value).find('a').attr( "onclick", "window.open(this.href, (this.target ? '_blank' : '_self'));" )
     });
 
     $('.projects_services').removeAttr('role');
@@ -161,10 +161,45 @@ $(document).ready(function() {
         });
     });
 
+    $( ".tabs" ).tabs();
+    $( ".subtabs" ).tabs();
+    openParentTab();
+
 	$('.about h1.display-1').attr('data-aos', 'fade-up');
 	$('h2.underline').attr('data-aos', 'fade-up');
 
+    $('.accordion-toggle .col-xs.start-xs').each(function(){
+        if($(this).text().toLowerCase() === 'role in the oecd tgs programme'){
+            $(this).parent().css('text-transform', 'unset');
+            $(this).text('ROLE IN THE OECD TGs PROGRAMME');
+        }
+    });
+
+
+
 });
+
+function openParentTab() {
+	locationHash = location.hash.substring( 1 );
+	// Check if we have an location Hash
+	if (locationHash) {
+		// Check if the location hash exsist.
+		var hash = jQuery('#'+locationHash);
+		if (hash.length) {
+			// Check of the location Hash is inside a tab.
+			if (hash.closest(".tabContent").length) {
+				// Grab the index number of the parent tab so we can activate it
+				var tabNumber = hash.closest(".tabContent").index();
+				jQuery(".tabs.fix").tabs({ active: tabNumber });
+				// Not need but this puts the focus on the selected hash
+				hash.get(0).scrollIntoView();
+				setTimeout(function() {
+					hash.get(0).scrollIntoView();
+				}, 1000);
+			}
+		}
+	}
+}
 
 function GoToPage(page){
     window.open('/'+page, '_self');

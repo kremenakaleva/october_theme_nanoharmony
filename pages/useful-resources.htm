@@ -15,6 +15,30 @@ jumbotron = "useful-resources-introduction-oecd-standardization"
 background = "transperant"
 templates = "template3"
 description_limit = 0
+
+[jumbotron conditions]
+jumbotron = "useful-resources-conditions-use"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron related_links]
+jumbotron = "useful-resources-key-links-oecd-related-links"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron white_paper]
+jumbotron = "useful-resources-key-links-nanoharmony-white-paper"
+background = "transperant"
+templates = "template3"
+description_limit = 0
+
+[jumbotron other_links]
+jumbotron = "useful-resources-key-links-other-links"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 <?php
 use Pensoft\Calendar\Models\Entry;
@@ -37,8 +61,16 @@ function onStart(){
         <a class="" href="{{item.query_string}}">{{item.title}}</a>
         {% endfor %}
     </div>
-    <div class="row" id="Introduction-OECD-standardization">
+    <div class="row" id="Introduction-OECD-standardisation">
         {% component 'jumbotron' %}
+        <p>&nbsp;</p>
+        {% if is_mobile %}
+            {% partial "resources_schema_mobile.htm" %}
+        {% else %}
+            {% partial "resources_schema.htm" %}
+        {% endif %}
+        <p>&nbsp;</p>
+        {% component 'conditions' %}
     </div>
     <div class="row" id="FAQ">
         <div class="row projects_services text-left relative top-xs mt-2 gloss">
@@ -59,42 +91,103 @@ function onStart(){
         </div>
     </div>
     <div class="row" id="Key-links">
-        {% if entries.count() %}
-        <!-- events timeline -->
-                <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
-                    <div class="timeline__wrap">
-                        <div class="timeline__items">
-                            {% for entry in entries %}
-                            {% if entry.start %}
-                            <div class="timeline__item">
-                                <div class="timeline__content index_{{entry.id}}">
-                                    <div class="date_and_place">
-                                        <span class="event_date">
-                                            {{entry.start | date('F Y')}}
-                                        </span>
+        <div class="subtabs">
+            <ul>
+              <li><a href="#related-links">OECD related links</a></li>
+              <li><a href="#workshops-webinars">NanoHarmony Workshops & Webinars</a></li>
+              <li><a href="#white-paper">NanoHarmony White paper</a></li>
+              <li><a href="#other">Other links</a></li>
+            </ul>
+            <div id="related-links" class="subtabContent">
+                {% component 'related_links' %}
+            </div>
+            <div id="workshops-webinars" class="subtabContent">
+            <h2 style="text-align: center; margin-top:40px;">NanoHarmony workshops</h2>
+             {% if entries.count() %}
+                    <!-- events timeline -->
+                        <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
+                            <div class="timeline__wrap">
+                                <div class="timeline__items">
+                                    {% for entry in entries %}
+                                    {% if entry.start %}
+                                    <div class="timeline__item">
+                                        <div class="timeline__content index_{{entry.id}}">
+                                            <div class="date_and_place">
+                                                <span class="event_date">
+                                                    {{entry.start | date('F Y')}}
+                                                </span>
+                                            </div>
+                                            <div class="title_and_desc">
+                                                <span class="timeline-body">{{entry.title}}</span>
+                                                <span class="timeline-desc">{{entry.description|raw}}</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="title_and_desc">
-                                        <span class="timeline-body">{{entry.title}}</span>
-                                        <span class="timeline-desc">{{entry.description|raw}}</span>
-                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
                             </div>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
 
-                    <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
-            <script type="text/javascript">
-                timeline(document.querySelectorAll('.timeline'), {
-                    forceVerticalMode: 700,
-                    mode: 'horizontal',
-                    verticalStartPosition: 'left',
-                    visibleItems: 4,
-                    startIndex: 0
-                });
-            </script>
-    {% endif %}
+                            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+                        <script type="text/javascript">
+                            timeline(document.querySelectorAll('.timeline'), {
+                                forceVerticalMode: 700,
+                                mode: 'horizontal',
+                                verticalStartPosition: 'left',
+                                visibleItems: 4,
+                                startIndex: 0
+                            });
+                        </script>
+             {% endif %}
+            
+            <h2 style="text-align: center; margin-top:40px;">NanoHarmony webinars</h2>
+            
+            {% if entries.count() %}
+                    <!-- events timeline -->
+                        <div class="timeline2 timeline--loaded timeline--horizontal" style="opacity: 1;">
+                            <div class="timeline__wrap">
+                                <div class="timeline__items">
+                                    {% for entry in entries %}
+                                    {% if entry.start %}
+                                    <div class="timeline__item">
+                                        <div class="timeline__content index_{{entry.id}}">
+                                            <div class="date_and_place">
+                                                <span class="event_date">
+                                                    {{entry.start | date('F Y')}}
+                                                </span>
+                                            </div>
+                                            <div class="title_and_desc">
+                                                <span class="timeline-body">{{entry.title}}</span>
+                                                <span class="timeline-desc">{{entry.description|raw}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+                        <script type="text/javascript">
+                            timeline(document.querySelectorAll('.timeline2'), {
+                                forceVerticalMode: 700,
+                                mode: 'horizontal',
+                                verticalStartPosition: 'left',
+                                visibleItems: 4,
+                                startIndex: 0
+                            });
+                        </script>
+             {% endif %}
+
+            </div>
+            <div id="white-paper" class="subtabContent">
+                {% component 'white_paper' %}
+            </div>
+            <div id="other" class="subtabContent">
+                {% component 'other_links' %}
+            </div>
+          </div>
+        
     </div>
     <div class="row" id="Glossary">
         <div class="row projects_services text-left relative top-xs mt-2 gloss">
