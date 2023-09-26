@@ -647,6 +647,19 @@ p:has(.edit-link), .edit-link{
 
 .subtabs{
     margin-top: 20px;
+
+    .subtabContent{
+        ul{
+            list-style-image: none;
+            li{
+                background: url('../../assets/images/green_bullet.svg') left no-repeat;
+                background-size: 22px;
+                background-position-y: 3px;
+                padding: 0px 0 3px 29px;
+                margin-bottom: 10px;
+            }
+        }
+    }
 }
 .subtabs ul.ui-tabs-nav{
     list-style-image: none;
@@ -656,10 +669,13 @@ p:has(.edit-link), .edit-link{
     li{
         display: inline;
         padding: 3px 0 13px 8px;
-
+        width: 100%;
+        .breakpoint-large-down({
+            width: 85% !important;
+            display: block;
+        });
         a{
             border-radius: 18px;
-            // background: #005494;
             background: #11B3E8;
             padding: 20px;
             color: white;
@@ -669,10 +685,9 @@ p:has(.edit-link), .edit-link{
     }
 
     li.ui-state-hover, li.ui-tabs-active{
-        
         a{
             background: #005494;
-            
+
         }
     }
 }

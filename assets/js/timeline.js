@@ -301,7 +301,8 @@ function timeline(collection, options) {
         const topPosition = tl.items[0].offsetHeight;
         const horizontalDivider = document.createElement('span');
         horizontalDivider.className = 'timeline-divider';
-        horizontalDivider.style.top = `${topPosition + 84}px`;
+        // horizontalDivider.style.top = `${topPosition + 84}px`;
+        horizontalDivider.style.top = `185px`;
         tl.timelineEl.appendChild(horizontalDivider);
     }
 
@@ -318,7 +319,6 @@ function timeline(collection, options) {
         const arrowPrev = tl.timelineEl.querySelector('.timeline-nav-button--prev');
         const arrowNext = tl.timelineEl.querySelector('.timeline-nav-button--next');
         const maxIndex = tl.items.length - tl.settings.visibleItems;
-        console.log(tl.settings.visibleItems);
         const moveItems = parseInt(tl.settings.moveItems, 10);
 
         [].forEach.call(navArrows, (arrow) => {

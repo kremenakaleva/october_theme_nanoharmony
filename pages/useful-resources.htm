@@ -50,7 +50,8 @@ function onStart(){
     $this['menu_records'] = Menu::where('parent_id', '=', '30')->get();
     $this['faq_items'] = Item::where('category_id', '=', '30')->get();
     $this['glossary_items'] = Item::where('category_id', '=', '31')->get();
-    $this['entries'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+    $this['workshops'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->where('identifier', 1)->orderBy('start', 'asc')->get();
+    $this['webinars'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->where('identifier', 2)->orderBy('start', 'asc')->get();
 }
 ?>
 ==
@@ -102,13 +103,13 @@ function onStart(){
                 {% component 'related_links' %}
             </div>
             <div id="workshops-webinars" class="subtabContent">
-            <h2 style="text-align: center; margin-top:40px;">NanoHarmony workshops</h2>
-             {% if entries.count() %}
+            <h2 style="text-align: center; margin-top:40px; margin-bottom: 40px;">NanoHarmony workshops</h2>
+             {% if workshops.count() %}
                     <!-- events timeline -->
                         <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
                             <div class="timeline__wrap">
                                 <div class="timeline__items">
-                                    {% for entry in entries %}
+                                    {% for entry in workshops %}
                                     {% if entry.start %}
                                     <div class="timeline__item">
                                         <div class="timeline__content index_{{entry.id}}">
@@ -128,7 +129,9 @@ function onStart(){
                                 </div>
                             </div>
 
-                            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+                            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button>
+                            <button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button>
+                            <span class="timeline-divider" style="top: 265px;"></span></div>
                         <script type="text/javascript">
                             timeline(document.querySelectorAll('.timeline'), {
                                 forceVerticalMode: 700,
@@ -139,15 +142,15 @@ function onStart(){
                             });
                         </script>
              {% endif %}
-            
-            <h2 style="text-align: center; margin-top:40px;">NanoHarmony webinars</h2>
-            
-            {% if entries.count() %}
+
+            <h2 style="text-align: center; margin-top:40px; margin-bottom: 40px;">NanoHarmony webinars</h2>
+
+            {% if webinars.count() %}
                     <!-- events timeline -->
                         <div class="timeline2 timeline--loaded timeline--horizontal" style="opacity: 1;">
                             <div class="timeline__wrap">
                                 <div class="timeline__items">
-                                    {% for entry in entries %}
+                                    {% for entry in webinars %}
                                     {% if entry.start %}
                                     <div class="timeline__item">
                                         <div class="timeline__content index_{{entry.id}}">
@@ -167,7 +170,9 @@ function onStart(){
                                 </div>
                             </div>
 
-                            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+                            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button>
+                            <button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button>
+                            <span class="timeline-divider" style="top: 265px;"></span></div>
                         <script type="text/javascript">
                             timeline(document.querySelectorAll('.timeline2'), {
                                 forceVerticalMode: 700,
@@ -187,7 +192,7 @@ function onStart(){
                 {% component 'other_links' %}
             </div>
           </div>
-        
+
     </div>
     <div class="row" id="Glossary">
         <div class="row projects_services text-left relative top-xs mt-2 gloss">

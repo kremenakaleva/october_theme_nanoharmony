@@ -190,6 +190,63 @@
 }
 
 
+.organisation-economic-co-operation-and-development-oecd,
+.other-standardisation-bodies,
+.governmental-bodies,
+.academia,
+.industry-service-providers,
+.general-public-ngos
+{
+    .projects_services .accordion-border{
+        position: relative;
+        .green_bullet{
+            border-top-left-radius: 18px;
+            border-bottom-left-radius: 18px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 87px;
+            height: 87px;
+            .breakpoint-large-down({
+                    display: none;
+                });
+        }
+        .col-xs.start-xs{
+            padding-left: 90px;
+            .breakpoint-large-down({
+                    padding-left: 0px;
+                });
+        }
+    }
+    .projects_services .col-md-6.col-xs-12{
+        .key_1:nth-of-type(1) .green_bullet{
+                background: #005494 url("../../../../storage/app/media/phase description.svg") center no-repeat;
+                background-size: 50%;
+
+        }
+        .key_1:nth-of-type(2) .green_bullet{
+                background: #005494 url("../../assets/images/role in project.svg") center no-repeat;
+                background-size: 50%;
+
+
+        }
+        .key_1:nth-of-type(3){
+            .green_bullet{
+                background: #005494 url("../../assets/images/examples.svg") center no-repeat;
+                background-size: 50%;
+            }
+        }
+        .key_1:nth-of-type(4){
+            .green_bullet{
+                background: #005494 url("../../assets/images/funding.svg") center no-repeat;
+                background-size: 50%;
+            }
+        }
+    }
+
+}
+
 
 .pre-oecd-phase,
 .project-definition-oecd,
@@ -228,7 +285,7 @@
         .key_1:nth-of-type(2) .green_bullet{
                 background: #005494 url("../../../../storage/app/media/Processes-icon.svg") center no-repeat;
                 background-size: 50%;
-                
+
 
         }
         .key_1:nth-of-type(3){
@@ -335,7 +392,7 @@
                 background-size: 50%;
 
         }
-       
+
         .key_1:nth-of-type(2){
             .green_bullet{
                 background: #005494 url("../../../../storage/app/media/TIPS and TRICKS-icon.svg") center no-repeat;
