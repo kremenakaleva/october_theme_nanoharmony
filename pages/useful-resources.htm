@@ -33,12 +33,6 @@ jumbotron = "useful-resources-key-links-nanoharmony-white-paper"
 background = "transperant"
 templates = "template3"
 description_limit = 0
-
-[jumbotron other_links]
-jumbotron = "useful-resources-key-links-other-links"
-background = "transperant"
-templates = "template3"
-description_limit = 0
 ==
 <?php
 use Pensoft\Calendar\Models\Entry;
@@ -97,7 +91,6 @@ function onStart(){
               <li><a href="#related-links">OECD related links</a></li>
               <li><a href="#workshops-webinars">NanoHarmony Workshops & Webinars</a></li>
               <li><a href="#white-paper">NanoHarmony White paper</a></li>
-              <li><a href="#other">Other links</a></li>
             </ul>
             <div id="related-links" class="subtabContent">
                 {% component 'related_links' %}
@@ -187,9 +180,6 @@ function onStart(){
             </div>
             <div id="white-paper" class="subtabContent">
                 {% component 'white_paper' %}
-            </div>
-            <div id="other" class="subtabContent">
-                {% component 'other_links' %}
             </div>
           </div>
 

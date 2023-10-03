@@ -28,6 +28,11 @@ nav img{
     //max-width: fit-content;
 }
 
+sup{
+    vertical-align: super;  
+    font-size: 14px; 
+}
+
 ul{
     list-style-image: url('../../assets/images/bullet.svg');
     padding-left: 30px;
@@ -552,7 +557,7 @@ p:has(.edit-link), .edit-link{
             }
         }
 
-        .hover_item{
+        .hover_item:not(.not-clickable){
             &:hover{
                 cursor: pointer;
                 path{
@@ -647,10 +652,12 @@ p:has(.edit-link), .edit-link{
 
 .subtabs{
     margin-top: 20px;
-
+    width: 100%;
     .subtabContent{
         ul{
             list-style-image: none;
+            padding-left: 0;
+            padding-right: 20px;
             li{
                 background: url('../../assets/images/green_bullet.svg') left no-repeat;
                 background-size: 22px;
@@ -662,32 +669,61 @@ p:has(.edit-link), .edit-link{
     }
 }
 .subtabs ul.ui-tabs-nav{
-    list-style-image: none;
-    padding-left: 0px;
-    display: inline-block;
-    margin-bottom: 50px;
-    li{
-        display: inline;
-        padding: 3px 0 13px 8px;
+        list-style-image: none;
+        padding-left: 0px;
+        display: flex;
+        margin-bottom: 50px;
         width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        justify-content: space-between;
         .breakpoint-large-down({
-            width: 85% !important;
-            display: block;
+            flex-direction: column;
+            width: 85%;
         });
-        a{
-            border-radius: 18px;
-            background: #11B3E8;
-            padding: 20px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
+        
+        li{
+            display: contents;
+            padding: 3px 0 13px 8px;
+            width: 100%;
+            .breakpoint-large-down({
+                width: 85% !important;
+            });
+            a{
+                border-radius: 18px;
+                background: #11B3E8;
+                padding: 20px 50px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                max-width: 100%;
+                .breakpoint-huge-down({
+                    font-size: 16px;
+                    margin-bottom: 20px;
+                });
+            }
         }
-    }
 
     li.ui-state-hover, li.ui-tabs-active{
         a{
             background: #005494;
 
         }
+    }
+}
+
+
+.useful-resources{
+    .items{
+      width:90%;
+      margin:0px auto;
+      margin-top: 100px;
+    }
+    .slick-slide{
+      margin:10px;
+    }
+    .slick-slide img{
+      width:100%;
     }
 }

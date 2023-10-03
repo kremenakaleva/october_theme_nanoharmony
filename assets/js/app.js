@@ -78,9 +78,15 @@ $(document).ready(function() {
     });
 
 
+    var extLink = $('#layout-content a').filter(function() { 
+      return this.hostname && this.hostname !== location.hostname
+    });
+    extLink.each(function(){
+      $(this).attr('target', '_blank');
+    });
 
-    $('.projects_services .accordion-content, .projects_services .accordion-toggle').each(function( index, value ) {
-        $(value).find('a').attr( "onclick", "window.open(this.href, (this.target ? '_blank' : '_self'));" )
+    $('.about .container').each(function( index, value ) {
+        $(value).find('a').attr( "onclick", "openNewTab(this.href);" )
     });
 
     $('.projects_services').removeAttr('role');
@@ -175,9 +181,44 @@ $(document).ready(function() {
         }
     });
 
+    $('.useful-resources .items').slick({
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+    });
 
 
 });
+
+// this function can fire onclick handler for any DOM-Element
+function fireClickEvent(element) {
+    var evt = new window.MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true
+    });
+
+    element.dispatchEvent(evt);
+    return false;
+}
+
+// this function will setup a virtual anchor element
+// and fire click handler to open new URL in the same room
+// it works better than location.href=something or location.reload()
+function openSameTab(targetURL) {
+    var a = document.createElement('a');
+    a.href = targetURL;
+    fireClickEvent(a);
+}
+
+function openNewTab(targetURL) {
+    var a = document.createElement('a');
+    a.href = targetURL;
+
+    a.target = '_blank'; // now it will open new tab/window and bypass any popup blocker!
+
+    fireClickEvent(a);
+}
 
 function openParentTab() {
 	locationHash = location.hash.substring( 1 );
