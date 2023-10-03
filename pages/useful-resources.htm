@@ -42,7 +42,9 @@ use Carbon\Carbon;
 
 function onStart(){
     $this['menu_records'] = Menu::where('parent_id', '=', '30')->get();
-    $this['faq_items'] = Item::where('category_id', '=', '30')->get();
+    $this['faq_items1'] = Item::where('category_id', '=', '30')->get();
+    $this['faq_items2'] = Item::where('category_id', '=', '32')->get();
+    $this['faq_items3'] = Item::where('category_id', '=', '33')->get();
     $this['glossary_items'] = Item::where('category_id', '=', '31')->get();
     $this['workshops'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->where('identifier', 1)->orderBy('start', 'asc')->get();
     $this['webinars'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->where('identifier', 2)->orderBy('start', 'asc')->get();
@@ -69,8 +71,47 @@ function onStart(){
     </div>
     <div class="row" id="FAQ">
         <div class="row projects_services text-left relative top-xs mt-2 gloss">
-            {% for key, item in faq_items %}
-            <div class="key_f_{{key}}">
+            <div class="col-xs-12">
+                <h2>OECD Test Guidelines Programme</h2>
+            </div>
+            {% for key, item in faq_items1 %}
+            <div class="key_f1_{{key}}">
+                <div class="accordion-border">
+                    <div class="row middle-xs accordion-toggle">
+                        <div class="col-xs start-xs">{{item.title}}</div>
+                        <div class="col-xs-2 end-xs plusminus"><span class="plus">&nbsp;</span></div>
+                    </div>
+                    <div class="accordion-content">
+
+                        {{item.body|raw}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="col-xs-12">
+                <h2>OECD Test Guidelines applicability for nanomaterials</h2>
+            </div>
+            {% for key, item in faq_items2 %}
+            <div class="key_f2_{{key}}">
+                <div class="accordion-border">
+                    <div class="row middle-xs accordion-toggle">
+                        <div class="col-xs start-xs">{{item.title}}</div>
+                        <div class="col-xs-2 end-xs plusminus"><span class="plus">&nbsp;</span></div>
+                    </div>
+                    <div class="accordion-content">
+
+                        {{item.body|raw}}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="col-xs-12">
+                <h2>TGs/GGs pursued by NanoHarmony</h2>
+            </div>
+            {% for key, item in faq_items3 %}
+            <div class="key_f3_{{key}}">
                 <div class="accordion-border">
                     <div class="row middle-xs accordion-toggle">
                         <div class="col-xs start-xs">{{item.title}}</div>
@@ -201,16 +242,22 @@ function onStart(){
                 </div>
                 {% endfor %}
         </div>
-        <script>
-            var width = $(window).width();
 
-            if (width >= 1024 ) {
-                $('.key_g_1, .key_g_3, .key_g_5, .key_g_7, .key_g_9, .key_g_11, .key_g_13, .key_g_15, .key_g_17, .key_g_19, .key_g_21, .key_g_23, .key_g_25, .key_g_27').wrapAll('<div class="col-md-6 col-xs-12" />');
-                $('.key_g_0, .key_g_2, .key_g_4, .key_g_6, .key_g_8, .key_g_10, .key_g_12, .key_g_14, .key_g_16, .key_g_18, .key_g_20, .key_g_22, .key_g_24, .key_g_26').wrapAll('<div class="col-md-6 col-xs-12" />');
-                $('.key_f_1, .key_f_3, .key_f_5, .key_f_7, .key_f_9, .key_f_11, .key_f_13, .key_f_15, .key_f_17, .key_f_19, .key_f_21, .key_f_23, .key_f_25, .key_f_27').wrapAll('<div class="col-md-6 col-xs-12" />');
-                $('.key_f_0, .key_f_2, .key_f_4, .key_f_6, .key_f_8, .key_f_10, .key_f_12, .key_f_14, .key_f_16, .key_f_18, .key_f_20, .key_f_22, .key_f_24, .key_f_26').wrapAll('<div class="col-md-6 col-xs-12" />');
-            }
-
-        </script>
     </div>
 </div>
+
+<script>
+    var width = $(window).width();
+
+    if (width >= 1024 ) {
+        $('.key_g_1, .key_g_3, .key_g_5, .key_g_7, .key_g_9, .key_g_11, .key_g_13, .key_g_15, .key_g_17, .key_g_19, .key_g_21, .key_g_23, .key_g_25, .key_g_27').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_g_0, .key_g_2, .key_g_4, .key_g_6, .key_g_8, .key_g_10, .key_g_12, .key_g_14, .key_g_16, .key_g_18, .key_g_20, .key_g_22, .key_g_24, .key_g_26').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_f1_1, .key_f1_3, .key_f1_5, .key_f1_7, .key_f1_9, .key_f1_11, .key_f1_13, .key_f1_15, .key_f1_17, .key_f1_19, .key_f1_21, .key_f1_23, .key_f1_25, .key_f1_27').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_f1_0, .key_f1_2, .key_f1_4, .key_f1_6, .key_f1_8, .key_f1_10, .key_f1_12, .key_f1_14, .key_f1_16, .key_f1_18, .key_f1_20, .key_f1_22, .key_f1_24, .key_f1_26').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_f2_1, .key_f2_3, .key_f2_5, .key_f2_7, .key_f2_9, .key_f2_11, .key_f2_13, .key_f2_15, .key_f2_17, .key_f2_19, .key_f2_21, .key_f2_23, .key_f2_25, .key_f2_27').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_f2_0, .key_f2_2, .key_f2_4, .key_f2_6, .key_f2_8, .key_f2_10, .key_f2_12, .key_f2_14, .key_f2_16, .key_f2_18, .key_f2_20, .key_f2_22, .key_f2_24, .key_f2_26').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_f3_1, .key_f3_3, .key_f3_5, .key_f3_7, .key_f3_9, .key_f3_11, .key_f3_13, .key_f3_15, .key_f3_17, .key_f3_19, .key_f3_21, .key_f3_23, .key_f3_25, .key_f3_27').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_f3_0, .key_f3_2, .key_f3_4, .key_f3_6, .key_f3_8, .key_f3_10, .key_f3_12, .key_f3_14, .key_f3_16, .key_f3_18, .key_f3_20, .key_f3_22, .key_f3_24, .key_f3_26').wrapAll('<div class="col-md-6 col-xs-12" />');
+    }
+
+</script>
